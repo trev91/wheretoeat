@@ -1,0 +1,26 @@
+<div class="col-md-12 new-restaurant-wrapper">
+  <h1>Add a new Restaurant!</h1>
+  <%= form_for :restaurant, url: restaurants_path do |f| %>
+    <div class="col-md-12">
+      <p>
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </p>
+      <% Restaurant.attribute_names.each do |attr_name, attr_value| %>
+        <% next if attr_name == "id" || attr_name == "created_at" || attr_name == "updated_at" || attr_name == "name" %>
+        <p class="restaurant_attributes">
+          <%= f.label attr_name %>
+          <% if attr_name == "description" %>
+            <%= f.text_area attr_name %>
+          <% else %>
+            <%= f.check_box attr_name %>
+          <% end %>
+        </p>
+      <% end %>
+      <p>
+        <%= f.submit %>
+      </p>
+    </div>
+  <% end %>
+  <%= link_to 'Back', restaurants_path %>
+</div>

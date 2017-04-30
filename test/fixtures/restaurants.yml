@@ -1,0 +1,67 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  highprice: false
+  medPrice: false
+  lowPrice: false
+  Sitdown: false
+  Fastfood: false
+  Drivethru: false
+  Children: false
+  Breakfast: false
+  Lunch: false
+  Dinner: false
+  Cultural: false
+  Asian: false
+  Bbq: false
+  Vegetarian: false
+  American: false
+  Mexican: false
+  Italian: false
+  Chinese: false
+  Buffet: false
+  Leftovers: false
+  Dessert: false
+  Healthy: false
+  Appetizers: false
+  Tips: false
+  Tvs: false
+  Bar: false
+  Burgers: false
+  Unlimitedfries: false
+  Pizza: false
+  Shakes: false
+  Fried: false
+
+two:
+  highprice: false
+  medPrice: false
+  lowPrice: false
+  Sitdown: false
+  Fastfood: false
+  Drivethru: false
+  Children: false
+  Breakfast: false
+  Lunch: false
+  Dinner: false
+  Cultural: false
+  Asian: false
+  Bbq: false
+  Vegetarian: false
+  American: false
+  Mexican: false
+  Italian: false
+  Chinese: false
+  Buffet: false
+  Leftovers: false
+  Dessert: false
+  Healthy: false
+  Appetizers: false
+  Tips: false
+  Tvs: false
+  Bar: false
+  Burgers: false
+  Unlimitedfries: false
+  Pizza: false
+  Shakes: false
+  Fried: false

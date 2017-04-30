@@ -1,0 +1,8 @@
+<% r = @restaurant%>
+<h1><%= r.name%></h1>
+<p class="restaurant-desc">
+  <%= r.description %>
+</p>
+<p>
+  <%= price_level(r.highprice, r.medPrice, r.lowPrice) %>
+</p>

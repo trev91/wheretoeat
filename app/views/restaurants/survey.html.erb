@@ -1,0 +1,28 @@
+<div class="col-md-12 col-sm-12 new-restaurant-wrapper text-center">
+  <h1>Time to Eat!</h1>
+  <%= form_for :restaurant, url: results_path do |f| %>
+    <div class="col-md-12 col-sm-12">
+      <div class="q1">
+        <%= render partial: 'q1', locals: { :f => f} %>
+      </div>
+      <div class="q2 hidden">
+        <%= render partial: 'q2', locals: { :f => f} %>
+      </div>
+      <div class="q3 hidden">
+        <%= render partial: 'q3', locals: { :f => f} %>
+      </div>
+      <p class="hidden">
+        <%= f.submit %>
+      </p>
+    </div>
+  <% end %>
+  <%= link_to 'Back', restaurants_path %>
+</div>
+<script>
+  var x = 1;
+  $('.answer').on('click', function() {
+    $('.q' +x).fadeOut().addClass('hidden');
+    x = x + 1;
+    $('.q' +x).fadeIn().removeClass('hidden');
+  })
+</script>
