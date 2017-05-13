@@ -3,26 +3,45 @@
   <%= form_for :restaurant, url: results_path do |f| %>
     <div class="col-md-12 col-sm-12">
       <div class="q1">
-        <%= render partial: 'q1', locals: { :f => f} %>
+        <%= render partial: 'question', locals: { :f => f, :question => 'Are you looking for breakfast, lunch, or dinner?', :responses => ["breakfast", "lunch", "dinner"]} %>
       </div>
       <div class="q2 hidden">
-        <%= render partial: 'q2', locals: { :f => f} %>
+        <%= render partial: 'question', locals: { :f => f, :question => "What's your budget?", :responses => ["Under $10 per person", "Under $15 per person", "$15+ per person"]} %>
       </div>
       <div class="q3 hidden">
-        <%= render partial: 'q3', locals: { :f => f} %>
+        <%= render partial: 'question', locals: { :f => f, :question => 'Interested in fast food?', :responses => ["Yes", "No"]} %>
       </div>
       <p class="hidden">
         <%= f.submit %>
       </p>
     </div>
   <% end %>
-  <%= link_to 'Back', restaurants_path %>
+  <a id="gobackone">Go Back a Question...</a>
 </div>
 <script>
   var x = 1;
+
   $('.answer').on('click', function() {
     $('.q' +x).fadeOut().addClass('hidden');
+    console.log(x + " before next");
     x = x + 1;
     $('.q' +x).fadeIn().removeClass('hidden');
+    console.log(x + " after next");
+    $('body').css('background-color', changeBG());
+  });
+  
+  $('#gobackone').on('click', function() {
+    console.log(x + ' before back');
+    $('.q'+x).fadeOut().addClass('hidden');
+    x = x - 1;
+    console.log(x + ' after back');
+    $('.q' + x).fadeIn().removeClass('hidden');
+    $('body').css('background-color', changeBG());
   })
+
+  function changeBG() {
+    var bgColorArray = ['#948', '#511', '#844', '#456', '#705', 'orange', 'red', 'navy'];
+    var color = bgColorArray[Math.floor(Math.random() * bgColorArray.length)];
+    return color;
+  }
 </script>

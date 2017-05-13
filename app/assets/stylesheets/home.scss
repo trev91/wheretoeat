@@ -1,3 +1,10 @@
 body {
   background-color:lightblue;
 }
+.response {
+  display: flex;
+  height: 50vh;
+  border: 1px dotted white;
+  justify-content: center;
+  align-items: center;
+}
