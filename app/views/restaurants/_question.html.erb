@@ -1,20 +1,28 @@
 <h2 class="question"><%=question%></h2>
-<%
-if responses.length == 2
+<% if responses.length == 2
   columnsize = "col-md-6 col-sm-6 col-xs-6 answer"
+  width = "33%"
 elsif responses.length == 3
   columnsize = "col-md-4 col-sm-4 col-xs-12 answer"
-end
-  %>
-<% responses.each do |r| %>
-<div class="<%= columnsize %> response">
-  <%= f.label r %>
-  <%= f.check_box r %>
+  width = "25%"
+end %>
+
+<div class="responses-wrapper" id="<%= q %>">
+  <% num = 0 %>
+  <% responses.each do |r| %>
+  <% num = num + 1 %>
+  <% id = num.to_s + q %>
+  <div class="<%= columnsize %> response"  id="<%= id %>" style="width:<%= width %>" onclick="manageChecks('<%= id %>','<%= q %>')">
+    <%= f.label r %>
+    <%= f.check_box r %>
+  </div>
+  <% end %>
 </div>
-<% end %>
+
 <script>
-$('.response').on('click', function(){
-   var checkbox = $(this).children('input[type="checkbox"]');
-   checkbox.prop('checked', !checkbox.prop('checked'));
-});
+function manageChecks(id,q) {
+  var checkbox = $('#'+id).children('input[type="checkbox"]');
+  $('#'+q).find('input[type=checkbox]:checked').removeAttr('checked');
+  checkbox.prop('checked', !checkbox.prop('checked'));
+}
 </script>

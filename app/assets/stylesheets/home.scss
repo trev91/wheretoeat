@@ -1,10 +1,29 @@
 body {
   background-color:lightblue;
+  color: white;
+  transition: all .4s;
+}
+.responses-wrapper {
+  padding:50px 0 50px;
+  display:flex;
+  justify-content: center;
 }
 .response {
-  display: flex;
+  font-family:fantasy;
+  margin: 0px 15px 0px 15px;
+  display:flex;
+  border-radius:100px;
   height: 50vh;
   border: 1px dotted white;
   justify-content: center;
   align-items: center;
+  font-size:30px;
+}
+#gobackone {
+  padding-top:50px;
+  font-size:16px;
+
+}
+input[type="radio"], input[type="checkbox"] {
+  display:none;
 }

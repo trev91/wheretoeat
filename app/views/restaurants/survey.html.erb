@@ -3,13 +3,13 @@
   <%= form_for :restaurant, url: results_path do |f| %>
     <div class="col-md-12 col-sm-12">
       <div class="q1">
-        <%= render partial: 'question', locals: { :f => f, :question => 'Are you looking for breakfast, lunch, or dinner?', :responses => ["breakfast", "lunch", "dinner"]} %>
+        <%= render partial: 'question', locals: { :f => f, :question => 'Are you looking for breakfast, lunch, or dinner?', :responses => ["breakfast", "lunch", "dinner"], :q => "q1"} %>
       </div>
       <div class="q2 hidden">
-        <%= render partial: 'question', locals: { :f => f, :question => "What's your budget?", :responses => ["Under $10 per person", "Under $15 per person", "$15+ per person"]} %>
+        <%= render partial: 'question', locals: { :f => f, :question => "What's your budget?", :responses => ["Under $10 per person", "Under $15 per person", "$15+ per person"], :q => "q2"} %>
       </div>
       <div class="q3 hidden">
-        <%= render partial: 'question', locals: { :f => f, :question => 'Interested in fast food?', :responses => ["Yes", "No"]} %>
+        <%= render partial: 'question', locals: { :f => f, :question => 'Interested in fast food?', :responses => ["Yes", "No"], :q => "q3"} %>
       </div>
       <p class="hidden">
         <%= f.submit %>
@@ -18,30 +18,31 @@
   <% end %>
   <a id="gobackone">Go Back a Question...</a>
 </div>
+
 <script>
-  var x = 1;
+var x = 1;
 
-  $('.answer').on('click', function() {
-    $('.q' +x).fadeOut().addClass('hidden');
-    console.log(x + " before next");
-    x = x + 1;
-    $('.q' +x).fadeIn().removeClass('hidden');
-    console.log(x + " after next");
-    $('body').css('background-color', changeBG());
-  });
-  
-  $('#gobackone').on('click', function() {
-    console.log(x + ' before back');
-    $('.q'+x).fadeOut().addClass('hidden');
-    x = x - 1;
-    console.log(x + ' after back');
-    $('.q' + x).fadeIn().removeClass('hidden');
-    $('body').css('background-color', changeBG());
-  })
+$('.answer').on('click', function() {
+  $('.q' +x).fadeOut().addClass('hidden');
+  console.log(x + " before next");
+  x = x + 1;
+  $('.q' +x).fadeIn().removeClass('hidden');
+  console.log(x + " after next");
+  $('body').css('background-color', changeBG());
+});
 
-  function changeBG() {
-    var bgColorArray = ['#948', '#511', '#844', '#456', '#705', 'orange', 'red', 'navy'];
-    var color = bgColorArray[Math.floor(Math.random() * bgColorArray.length)];
-    return color;
-  }
+$('#gobackone').on('click', function() {
+  console.log(x + ' before back');
+  $('.q'+x).fadeOut().addClass('hidden');
+  x = x - 1;
+  console.log(x + ' after back');
+  $('.q' + x).fadeIn().removeClass('hidden');
+  $('body').css('background-color', changeBG());
+})
+
+function changeBG() {
+  var bgColorArray = ['#FF5733', '#FFCA33', '#3ACD28', '#456', '#15B67E', '#1546B6', '#5715B6', '#B615B4', '#B6152D'];
+  var color = bgColorArray[Math.floor(Math.random() * bgColorArray.length)];
+  return color;
+}
 </script>
